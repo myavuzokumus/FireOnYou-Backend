@@ -5,6 +5,7 @@ import games.sc_riber.FireOnYou.business.requests.CreateVehicleTypeRequest;
 import games.sc_riber.FireOnYou.business.requests.UpdateVehicleTypeRequest;
 import games.sc_riber.FireOnYou.business.responses.GetAllVehicleTypesResponse;
 import games.sc_riber.FireOnYou.business.responses.GetIdVehicleTypeResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,7 @@ public class TypesController {
 
     @PostMapping()
     @ResponseStatus(code=HttpStatus.CREATED) // Bu metodun bir GET request'i karşılayacağını belirtir.
-    public void add(@RequestBody CreateVehicleTypeRequest request) {
+    public void add(@RequestBody() @Valid() CreateVehicleTypeRequest request) {
         this.typeService.add(request);
     }
 
