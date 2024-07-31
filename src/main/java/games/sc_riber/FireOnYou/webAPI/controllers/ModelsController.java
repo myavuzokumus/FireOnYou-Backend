@@ -2,7 +2,6 @@ package games.sc_riber.FireOnYou.webAPI.controllers;
 
 import games.sc_riber.FireOnYou.business.abstracts.ModelService;
 import games.sc_riber.FireOnYou.business.requests.CreateModelRequest;
-import games.sc_riber.FireOnYou.business.requests.CreateVehicleTypeRequest;
 import games.sc_riber.FireOnYou.business.responses.GetAllModelsResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
