@@ -5,24 +5,29 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-@Table(name = "types")
+@Table(name = "vehicles")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class VehicleType {
+public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "country")
+    private String country;
 
-    @OneToMany(mappedBy = "vehicleType")
-    List<Model> models;
+    @Column(name = "modelYear")
+    private int modelYear;
+
+    @Column(name = "state")
+    private int state;
+
+    @ManyToOne
+    @JoinColumn(name = "model_id")
+    private Model model;
 
 }

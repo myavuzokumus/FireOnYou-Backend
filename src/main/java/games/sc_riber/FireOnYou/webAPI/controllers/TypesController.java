@@ -2,14 +2,13 @@ package games.sc_riber.FireOnYou.webAPI.controllers;
 
 import games.sc_riber.FireOnYou.business.abstracts.TypeService;
 import games.sc_riber.FireOnYou.business.requests.CreateVehicleTypeRequest;
+import games.sc_riber.FireOnYou.business.requests.UpdateVehicleTypeRequest;
 import games.sc_riber.FireOnYou.business.responses.GetAllVehicleTypesResponse;
-import games.sc_riber.FireOnYou.entities.concretes.VehicleType;
+import games.sc_riber.FireOnYou.business.responses.GetIdVehicleTypeResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,14 +19,30 @@ public class TypesController {
 
     private TypeService typeService;
 
-    @GetMapping("/getall") // Bu metodun bir GET request'i karşılayacağını belirtir.
+    @GetMapping() // Bu metodun bir GET request'i karşılayacağını belirtir.
     public List<GetAllVehicleTypesResponse> getAll() {
         return typeService.getAll();
     }
 
-    @PostMapping("/add") // Bu metodun bir GET request'i karşılayacağını belirtir.
-    public void add(CreateVehicleTypeRequest request) {
+    @GetMapping("/{id}") // Bu metodun bir GET request'i karşılayacağını belirtir.
+    public GetIdVehicleTypeResponse getById(@PathVariable int id) {
+        return typeService.getById(id);
+    }
+
+    @PostMapping()
+    @ResponseStatus(code=HttpStatus.CREATED) // Bu metodun bir GET request'i karşılayacağını belirtir.
+    public void add(@RequestBody() @Valid() CreateVehicleTypeRequest request) {
         this.typeService.add(request);
+    }
+
+    @PutMapping
+    public void update(@RequestBody UpdateVehicleTypeRequest request) {
+        this.typeService.update(request);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable int id) {
+        this.typeService.delete(id);
     }
 
 }
