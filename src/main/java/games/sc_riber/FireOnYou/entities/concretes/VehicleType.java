@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Table(name = "types")
 @Data
 @AllArgsConstructor
@@ -17,7 +19,10 @@ public class VehicleType {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "model")
-    private String vehicleName;
+    @Column(name = "name")
+    private String name;
+
+    @OneToMany(mappedBy = "vehicleType")
+    List<Model> models;
 
 }
