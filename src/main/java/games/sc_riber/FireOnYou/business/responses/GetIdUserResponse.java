@@ -1,5 +1,6 @@
 package games.sc_riber.FireOnYou.business.responses;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,10 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAllModelsResponse {
+public class GetIdUserResponse {
 
-    private int id;
-    private String modelName;
-    private String vehicleName;
+    int id;
+    String userName;
 
 }

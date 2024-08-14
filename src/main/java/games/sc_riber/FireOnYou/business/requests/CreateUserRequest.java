@@ -10,12 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateModelRequest {
+public class CreateUserRequest {
     @NotNull
     @NotBlank
     @Size(min = 3, max = 20)
-    private String modelName;
-    @NotNull
-    @NotBlank
-    private int vehicleTypeId;
+    private String userName;
 }

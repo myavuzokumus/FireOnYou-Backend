@@ -5,29 +5,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name = "vehicles")
+import java.util.List;
+
+@Table(name = "scores")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Vehicle {
+public class Score {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "country")
-    private String country;
-
-    @Column(name = "modelYear")
-    private int modelYear;
-
-    @Column(name = "state")
-    private int state;
+    @Column(name = "score")
+    private int score;
 
     @ManyToOne
-    @JoinColumn(name = "model_id")
-    private Model model;
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
 }

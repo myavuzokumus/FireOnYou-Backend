@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Table(name = "models")
+@Table(name = "users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Model {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +22,7 @@ public class Model {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "vehicleType_id")
-    private VehicleType vehicleType;
-
-    @OneToMany(mappedBy = "model")
-    private List<Vehicle> vehicles;
-
+    @OneToMany(mappedBy = "user")
+    List<Score> scores;
 
 }
