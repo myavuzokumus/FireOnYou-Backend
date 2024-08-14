@@ -5,7 +5,6 @@ import games.sc_riber.FireOnYou.business.requests.CreateUserRequest;
 import games.sc_riber.FireOnYou.business.requests.UpdateUserRequest;
 import games.sc_riber.FireOnYou.business.responses.GetAllUsersResponse;
 import games.sc_riber.FireOnYou.business.responses.GetIdUserResponse;
-import games.sc_riber.FireOnYou.business.rules.UserBusinessRules;
 import games.sc_riber.FireOnYou.core.utilities.mappers.ModelMapperService;
 import games.sc_riber.FireOnYou.dataAccess.abstracts.UserRepository;
 import games.sc_riber.FireOnYou.entities.concretes.User;
