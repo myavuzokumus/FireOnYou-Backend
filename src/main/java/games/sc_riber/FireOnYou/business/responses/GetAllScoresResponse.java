@@ -1,4 +1,4 @@
-package games.sc_riber.FireOnYou.business.requests;
+package games.sc_riber.FireOnYou.business.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdateVehicleTypeRequest {
+public class GetAllScoresResponse {
+
     private int id;
-    private String vehicleName;
+    private int score;
+    private String userName;
 
 }

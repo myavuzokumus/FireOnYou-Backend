@@ -25,7 +25,7 @@ public class FireOnYouApplication {
 	}
 
 	@ExceptionHandler
-	@ResponseStatus(code= HttpStatus.BAD_REQUEST)
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	public ProblemDetails handleException(BusinessException exception) {
 		ProblemDetails problemDetails = new ProblemDetails();
 		problemDetails.setMessage(exception.getMessage());
@@ -33,11 +33,11 @@ public class FireOnYouApplication {
 	}
 
 	@ExceptionHandler
-	@ResponseStatus(code= HttpStatus.BAD_REQUEST)
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	public ValidationProblemDetails handleValidationException(MethodArgumentNotValidException exception) {
 		ValidationProblemDetails validationProblemDetails = new ValidationProblemDetails();
 		validationProblemDetails.setMessage("VALIDATION.EXCEPTION");
-		validationProblemDetails.setValidationErrors(new HashMap<String, String>());
+		validationProblemDetails.setValidationErrors(new HashMap<>());
 
 		for (FieldError fieldError : exception.getBindingResult().getFieldErrors()) {
 			validationProblemDetails.getValidationErrors().put(fieldError.getField(), fieldError.getDefaultMessage());
@@ -50,5 +50,4 @@ public class FireOnYouApplication {
 	public ModelMapper getModelMapper() {
 		return new ModelMapper();
 	}
-
 }
