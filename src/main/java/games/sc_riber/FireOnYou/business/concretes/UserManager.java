@@ -18,7 +18,6 @@ import java.util.List;
 @AllArgsConstructor
 public class UserManager implements UserService {
 
-    private UserBusinessRules userBusinessRules;
     private UserRepository userRepository;
     private ModelMapperService modelMapperService;
 
